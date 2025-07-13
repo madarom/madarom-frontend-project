@@ -27,7 +27,7 @@
 </head>
 <body class="bg-white text-gray-800">
     <!-- Header -->
-    <header class="fixed w-full bg-transparent bg-opacity-90 backdrop-blur-sm z-50 transform -translate-y-1 transition-all duration-500 ease-in-out">
+    <header class="fixed w-full bg-transparent bg-opacity-90 z-50 transform -translate-y-1 transition-all duration-500 ease-in-out">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center" data-aos="fade-right">
                 <a href="#" class="logo-font text-2xl text-white">Mad'<span class="logo-part text-white">arom</span></a>
@@ -154,150 +154,31 @@
                     
                     <div class="mb-8">
                         <h4 class="font-medium mb-3">Category</h4>
-                        <div class="space-y-2">
-                            <label class="flex items-center space-x-3 cursor-pointer">
-                                <input type="checkbox" class="form-checkbox h-5 w-5 text-teal rounded border-gray-300">
-                                <span>Huile essentielle</span>
-                            </label>
-                            <label class="flex items-center space-x-3 cursor-pointer">
-                                <input type="checkbox" class="form-checkbox h-5 w-5 text-teal rounded border-gray-300">
-                                <span>Épice</span>
-                            </label>
+                        <div id="category-container" class="space-y-2">
+                          <!-- Les catégories seront injectées ici -->
                         </div>
                     </div>
+                      
                     
                     <div>
                         <h4 class="font-medium mb-3">Products</h4>
                         <div class="h-64 overflow-y-auto scrollbar-hide border border-gray-200 rounded-lg" data-aos="fade-right">
-                            <div class="space-y-1 p-2" data-aos="fade-right">
-                                <div class="filter-item p-2 rounded cursor-pointer">Vanilla Bourbon</div>
-                                <div class="filter-item p-2 rounded cursor-pointer">Ravintsara</div>
-                                <div class="filter-item p-2 rounded cursor-pointer">Ylang-Ylang</div>
-                                <div class="filter-item p-2 rounded cursor-pointer">Clove</div>
-                                <div class="filter-item p-2 rounded cursor-pointer">Ginger</div>
-                                <div class="filter-item p-2 rounded cursor-pointer">Niaouli</div>
-                                <div class="filter-item p-2 rounded cursor-pointer">Cinnamon</div>
-                                <div class="filter-item p-2 rounded cursor-pointer">Pepper</div>
-                                <div class="filter-item p-2 rounded cursor-pointer">Geranium</div>
-                                <div class="filter-item p-2 rounded cursor-pointer">Turmeric</div>
-                                <div class="filter-item p-2 rounded cursor-pointer">Lemongrass</div>
-                                <div class="filter-item p-2 rounded cursor-pointer">Cardamom</div>
-                                <div class="filter-item p-2 rounded cursor-pointer">Patchouli</div>
-                                <div class="filter-item p-2 rounded cursor-pointer">Vetiver</div>
-                                <div class="filter-item p-2 rounded cursor-pointer">Clove Bud</div>
-                            </div>
+                          <div id="subcategory-container" class="space-y-1 p-2" data-aos="fade-right">
+                            <!-- Subcategories will be injected here -->
+                          </div>
                         </div>
                     </div>
+                      
                 </div>
                 
                 <!-- Product Grid -->
                 <div class="w-full md:w-3/4">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <!-- Product Card 1 -->
-                        <div class="product-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300 cursor-pointer" data-aos="fade-right" data-aos-delay="100">
-                            <div class="h-48 bg-[#fcffff] flex items-center justify-center">
-                                <img src="./assets/img/p1.png" alt="Vanilla Bourbon" class="h-full w-full object-cover">
-                            </div>
-                            <div class="p-5">
-                                <h3 class="text-xl font-semibold mb-2">Vanilla Bourbon</h3>
-                                <p class="text-gray-600 mb-4">Premium Madagascar vanilla with rich, creamy aroma</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-2xl font-bold text-teal">$24.99</span>
-                                    <button class="btn-primary text-white px-4 py-2 text-sm view-detail-btn">View Details</button>
-
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Product Card 2 -->
-                        <div class="product-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300 cursor-pointer" data-aos="fade-right" data-aos-delay="250">
-                            <div class="h-48 bg-[#fcffff] flex items-center justify-center">
-                                <img src="./assets/img/p2.png" alt="Ravintsara" class="h-full w-full object-cover">
-                            </div>
-                            <div class="p-5">
-                                <h3 class="text-xl font-semibold mb-2">Ravintsara</h3>
-                                <p class="text-gray-600 mb-4">Powerful antiviral essential oil from Madagascar</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-2xl font-bold text-teal">$18.50</span>
-                                    <button class="btn-primary text-white px-4 py-2 text-sm view-detail-btn">View Details</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Product Card 3 -->
-                        <div class="product-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300 cursor-pointer" data-aos="fade-right" data-aos-delay="350">
-                            <div class="h-48 bg-[#fcffff] flex items-center justify-center">
-                                <img src="./assets/img/p3.jpeg" alt="Ylang-Ylang" class="h-full w-full object-cover">
-                            </div>
-                            <div class="p-5">
-                                <h3 class="text-xl font-semibold mb-2">Ylang-Ylang</h3>
-                                <p class="text-gray-600 mb-4">Exotic floral fragrance for relaxation</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-2xl font-bold text-teal">$22.75</span>
-                                    <button class="btn-primary text-white px-4 py-2 text-sm view-detail-btn">View Details</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Product Card 4 -->
-                        <div class="product-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300 cursor-pointer" data-aos="fade-right" data-aos-delay="450">
-                            <div class="h-48 bg-[#fcffff] flex items-center justify-center">
-                                <img src="./assets/img/p1.png" alt="Clove" class="h-full w-full object-cover">
-                            </div>
-                            <div class="p-5">
-                                <h3 class="text-xl font-semibold mb-2">Clove</h3>
-                                <p class="text-gray-600 mb-4">Warm, spicy aroma with antiseptic properties</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-2xl font-bold text-teal">$15.99</span>
-                                    <button class="btn-primary text-white px-4 py-2 text-sm view-detail-btn">View Details</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Product Card 5 -->
-                        <div class="product-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300 cursor-pointer" data-aos="fade-right" data-aos-delay="550">
-                            <div class="h-48 bg-[#fcffff] flex items-center justify-center">
-                                <img src="./assets/img/p2.png" alt="Ginger" class="h-full w-full object-cover">
-                            </div>
-                            <div class="p-5">
-                                <h3 class="text-xl font-semibold mb-2">Ginger</h3>
-                                <p class="text-gray-600 mb-4">Warming and stimulating digestive aid</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-2xl font-bold text-teal">$17.25</span>
-                                    <button class="btn-primary text-white px-4 py-2 text-sm view-detail-btn">View Details</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Product Card 6 -->
-                        <div class="product-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300 cursor-pointer" data-aos="fade-right" data-aos-delay="650">
-                            <div class="h-48 bg-[#fcffff] flex items-center justify-center">
-                                <img src="./assets/img/p3.jpeg" alt="Niaouli" class="h-full w-full object-cover">
-                            </div>
-                            <div class="p-5">
-                                <h3 class="text-xl font-semibold mb-2">Niaouli</h3>
-                                <p class="text-gray-600 mb-4">Respiratory support and immune booster</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-2xl font-bold text-teal">$19.99</span>
-                                    <button class="btn-primary text-white px-4 py-2 text-sm view-detail-btn">View Details</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
+                    <div id="product-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+                
                     <!-- Pagination -->
-                    <div class="mt-12 flex justify-center">
-                        <nav class="flex items-center space-x-2">
-                            <button class="px-3 py-1 rounded-full border border-gray-300 text-gray-600 hover:bg-gray-100" data-aos="fade-right" data-aos-delay="150">&laquo;</button>
-                            <button class="px-4 py-1 rounded-full bg-teal text-white" data-aos="fade-right" data-aos-delay="250">1</button>
-                            <button class="px-4 py-1 rounded-full border border-gray-300 text-gray-600 hover:bg-gray-100" data-aos="fade-right" data-aos-delay="350">2</button>
-                            <button class="px-4 py-1 rounded-full border border-gray-300 text-gray-600 hover:bg-gray-100" data-aos="fade-right" data-aos-delay="450">3</button>
-                            <button class="px-4 py-1 rounded-full border border-gray-300 text-gray-600 hover:bg-gray-100" data-aos="fade-right" data-aos-delay="550">4</button>
-                            <button class="px-4 py-1 rounded-full border border-gray-300 text-gray-600 hover:bg-gray-100" data-aos="fade-right" data-aos-delay="650">5</button>
-                            <button class="px-3 py-1 rounded-full border border-gray-300 text-gray-600 hover:bg-gray-100" data-aos="fade-right" data-aos-delay="750">&raquo;</button>
-                        </nav>
-                    </div>
+                    <div id="pagination" class="mt-12 flex justify-center"></div>
                 </div>
+  
             </div>
         </div>
     </section>
@@ -480,5 +361,7 @@
     </footer>
 
     <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/get_api.js"></script>
+
 </body>
 </html>

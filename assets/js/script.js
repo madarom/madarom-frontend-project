@@ -51,17 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- Product card click handler ---
-  const detailSection = document.getElementById('product-detail');
-  if (detailSection) {
-    document.querySelectorAll('.product-card').forEach(card => {
-      card.addEventListener('click', () => {
-        detailSection.classList.remove('hidden');
-        detailSection.scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-  }
-
   // --- Three.js 3D Bottle initialization ---
   const container = document.getElementById('bottle-container');
   if (container) {
@@ -213,17 +202,6 @@ window.addEventListener('DOMContentLoaded', () => {
     camera.aspect = container.clientWidth / container.clientHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(container.clientWidth, container.clientHeight);
-    });
-});
-
-const detailButtons = document.querySelectorAll('.view-detail-btn');
-const detailSection = document.getElementById('product-detail');
-
-detailButtons.forEach(button => {
-    button.addEventListener('click', () => {
-    // Affiche la section avec un effet
-    detailSection.classList.remove('hidden');
-    detailSection.scrollIntoView({ behavior: 'smooth' });
     });
 });
 
