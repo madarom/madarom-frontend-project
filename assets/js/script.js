@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // --- Chargement dynamique du header ---
+
   fetch('header.html')
     .then(response => {
       if (!response.ok) throw new Error('Network response was not ok');
@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error('Failed to load header:', err);
     });
 
-  // --- Mobile menu toggle ---
   const mobileMenuButton = document.querySelector('.md\\:hidden');
   const navMenu = document.querySelector('nav');
 
@@ -32,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- Smooth scrolling for anchor links ---
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', e => {
       e.preventDefault();
