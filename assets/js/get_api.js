@@ -31,7 +31,7 @@ function renderProducts() {
   productContainer.innerHTML = paginated.map(product => `
     <div class="product-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300 cursor-pointer" onclick="showDetail(${product.id})" data-aos="fade-right">
       <div class="h-48 bg-[#fcffff] flex items-center justify-center">
-        <img src="${product.image_url ?? './assets/img/p1.png'}" alt="${product.name_fr}" class="h-full w-full object-cover">
+        <img src="https://madarom-project-production.up.railway.app/storage/app/public/products/${product.image_path ?? './assets/img/p1.png'}" alt="${product.name_fr}" class="h-full w-full object-cover">
       </div>
       <div class="p-5">
         <h3 class="text-xl font-semibold mb-2">${product.name_latin}</h3>
