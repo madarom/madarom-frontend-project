@@ -31,7 +31,7 @@ function renderProducts() {
   productContainer.innerHTML = paginated.map(product => `
     <div class="product-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300 cursor-pointer" onclick="showDetail(${product.id})" data-aos="fade-right">
       <div class="h-48 bg-[#fcffff] flex items-center justify-center">
-        <img src="${product.image_path ?? './assets/img/p1.png'}" alt="${product.name_fr}" class="h-full w-full object-cover">
+        <img src="https://www.madarom.net/${product.image_path ?? 'assets/img/p1.png'}" alt="${product.name_fr}" class="h-full w-full object-cover">
       </div>
       <div class="p-5">
         <h3 class="text-xl font-semibold mb-2">${product.name_latin}</h3>
@@ -112,7 +112,7 @@ function showDetail(productId) {
       <div class="flex flex-col lg:flex-row gap-12 items-center">
         <div class="w-full lg:w-1/2">
           <div class="bg-gray-100 rounded-xl overflow-hidden h-96 flex items-center justify-center">
-            <img src="${product.image_path ?? './assets/img/p1.png'}" alt="${product.name_fr}" class="h-full w-full object-cover">
+            <img src="https://www.madarom.net/${product.image_path ?? 'assets/img/p1.png'}" alt="${product.name_fr}" class="h-full w-full object-cover">
           </div>
         </div>
         <div class="w-full lg:w-1/2">
