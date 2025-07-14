@@ -112,7 +112,7 @@ function showDetail(productId) {
       <div class="flex flex-col lg:flex-row gap-12 items-center">
         <div class="w-full lg:w-1/2">
           <div class="bg-gray-100 rounded-xl overflow-hidden h-96 flex items-center justify-center">
-            <img src="https://www.madarom.net/${product.image_path ?? 'assets/img/p1.png'}" alt="${product.name_fr}" class="h-full w-full object-cover">
+            <img src="https://www.madarom.net/${product.image_path ?? 'assets/img/p1.png'}" alt="${product.image_path}" class="h-full w-full object-cover">
           </div>
         </div>
         <div class="w-full lg:w-1/2">
