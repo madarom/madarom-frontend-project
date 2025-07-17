@@ -69,11 +69,9 @@ body {
 
 .phare-container div {
     flex-grow: 1;
-    background: #bc1414;
     height: 200px;
 }
 
 .phare-container div:hover {
     flex-grow: 10;
-    background-color: #56b6a8;
 }
