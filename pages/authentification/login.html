@@ -1,11 +1,190 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Madarom - Connexion</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #fcffff 0%, #fafafa 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(134, 249, 206, 0.5);
+            box-shadow: 0 0 10px rgba(134, 249, 206, 0.8);
+            animation: float 15s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+            }
+            50% {
+                transform: translateY(-100px) translateX(50px);
+            }
+        }
+        
+        .glow-effect {
+            box-shadow: 0 0 15px rgba(100, 210, 255, 0.5);
+        }
+        
+        .input-field {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .input-field:focus {
+            border-color: rgba(100, 210, 255, 0.5);
+            box-shadow: 0 0 10px rgba(100, 210, 255, 0.3);
+        }
+        
+        .btn-primary {
+            background-color: #bc1414;
+            border-top-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+        }
+
+        .btn-primary:hover {
+            background-color: #ff9700;
+        }
+
+        .logo-font {
+            font-family: 'Cubest', sans-serif;
+        }
+        .text-red {
+            color: #bc1414;
+        }
+        .text-teal {
+            color: #56b6a8;
+        }
+    </style>
 </head>
-<body>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3ZXNS9LBRR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-3ZXNS9LBRR');
+  </script>
+
+<body class="flex items-center justify-center relative overflow-hidden">
+    <!-- Particules animées en fond -->
+    <div id="particles"></div>
     
+    <!-- Contenu principal -->
+    <div class="container mx-auto px-4 z-10">
+        <div class="max-w-md mx-auto">
+            <!-- Logo Madarom -->
+            <div class="text-center mb-10">
+                <a href="#" class="logo-font text-2xl text-teal">Mad'<span class="logo-part text-red">arom</span></a>
+                <p class="text-gray-400 mt-2">Système d'authentification sécurisé</p>
+            </div>
+            
+            <!-- Formulaire de connexion -->
+            <div class="bg-white bg-opacity-5 backdrop-blur-lg rounded-xl p-8 border border-white border-opacity-10 shadow-2xl">
+                <form>
+                    <div class="mb-6">
+                        <label for="username" class="block text-sm font-medium text-gray-300 mb-2">Identifiant</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-user text-blue-400"></i>
+                            </div>
+                            <input type="text" id="username" class="w-full pl-10 pr-4 py-3 rounded-lg input-field text-white focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Entrez votre identifiant">
+                        </div>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <label for="password" class="block text-sm font-medium text-gray-300 mb-2">Mot de passe</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-lock text-blue-400"></i>
+                            </div>
+                            <input type="password" id="password" class="w-full pl-10 pr-4 py-3 rounded-full input-field text-white focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Entrez votre mot de passe">
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center">
+                            <input id="remember-me" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-blue-500 focus:ring-blue-500">
+                            <label for="remember-me" class="ml-2 block text-sm text-gray-300">Se souvenir de moi</label>
+                        </div>
+                        
+                        <div class="text-sm">
+                            <a href="#" class="font-medium text-blue-400 hover:text-blue-300">Mot de passe oublié?</a>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="w-full py-3 px-4 rounded-full text-white font-semibold btn-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        SE CONNECTER
+                    </button>
+                </form>
+                
+                <div class="mt-6 text-center">
+                    <p class="text-sm text-gray-400">
+                        Nouveau sur Madarom? 
+                        <a href="#" class="font-medium text-blue-400 hover:text-blue-300">Créer un compte</a>
+                    </p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <script>
+        // Création des particules animées
+        document.addEventListener('DOMContentLoaded', function() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 15;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Taille aléatoire entre 3px et 8px
+                const size = Math.random() * 5 + 3;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Position aléatoire
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Animation différente pour chaque particule
+                particle.style.animationDuration = `${Math.random() * 10 + 10}s`;
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                
+                // Opacité aléatoire
+                particle.style.opacity = Math.random() * 0.5 + 0.3;
+                
+                particlesContainer.appendChild(particle);
+            }
+
+            const inputFields = document.querySelectorAll('.input-field');
+            inputFields.forEach(field => {
+                field.addEventListener('mouseenter', () => {
+                    field.classList.add('glow-effect');
+                });
+                
+                field.addEventListener('mouseleave', () => {
+                    field.classList.remove('glow-effect');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
