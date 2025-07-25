@@ -121,8 +121,9 @@ window.addEventListener('scroll', () => {
   const navLinks = document.querySelectorAll('.nav-link');
   const logo = document.querySelector('.logo-font');
   const logo2 = document.querySelector('.logo-part');
+  const langue = document.querySelector('.btn-langue');
 
-  if (!header || !logo || !logo2) return;
+  if (!header || !logo || !logo2 || !langue) return;
 
   if (window.scrollY > 50) {
     header.classList.add('bg-white', 'shadow-lg', 'translate-y-0');
@@ -133,6 +134,12 @@ window.addEventListener('scroll', () => {
 
     logo2.classList.remove('text-white');
     logo2.classList.add('text-red');
+
+    langue.classList.remove('text-white');
+    langue.classList.add('text-gray-900');
+
+    langue.classList.remove('border-white');
+    langue.classList.add('border-gray-900');
 
     navLinks.forEach(link => {
       link.classList.remove('text-white');
@@ -147,6 +154,12 @@ window.addEventListener('scroll', () => {
 
     logo2.classList.remove('text-red');
     logo2.classList.add('text-white');
+
+    langue.classList.add('text-white');
+    langue.classList.remove('text-gray-900');
+
+    langue.classList.add('border-white');
+    langue.classList.remove('border-gray-900');
 
     navLinks.forEach(link => {
       link.classList.remove('text-gray-900');
@@ -254,3 +267,15 @@ const scene = new THREE.Scene();
     camera.aspect = container.clientWidth / container.clientHeight;
     camera.updateProjectionMatrix();
   });
+
+  function toggleList(button) {
+    const list = button.nextElementSibling;
+    list.classList.toggle('hidden');
+    
+    if (list.classList.contains('hidden')) {
+      button.textContent = 'Learn more';
+    } else {
+      button.textContent = 'Learn less';
+    }
+  }
+  

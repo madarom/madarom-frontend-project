@@ -29,21 +29,32 @@ function renderProducts() {
   const paginated = filteredProducts.slice(start, start + perPage);
 
   productContainer.innerHTML = paginated.map(product => `
-    <div class="product-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300 cursor-pointer" onclick="showDetail(${product.id})" data-aos="fade-right">
+    <div class="product-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300 cursor-pointer flex flex-col" onclick="showDetail(${product.id})" data-aos="fade-right" style="height: 100%;">
       <div class="h-48 bg-[#fcffff] flex items-center justify-center">
-        <img src="https://www.madarom.net/${product.image_path ?? 'assets/img/p1.png'}" alt="${product.name_fr}" class="h-full w-full object-cover">
+        <img src="https://www.madarom.net/${product.image_path ?? 'assets/img/p1.png'}" alt="${product.name_en}" class="h-full w-full object-cover">
       </div>
-      <div class="p-5">
+      <div class="p-5 flex flex-col flex-grow">
         <h3 class="text-xl font-semibold mb-2">${product.name_latin}</h3>
-        <p class="text-gray-600 mb-4">${product.name_fr?.slice(0, 60)}</p>
-        <div class="flex justify-between items-center">
-          <span class="text-2xl font-bold text-teal">–</span>
-          <button class="btn-primary text-white px-4 py-2 text-sm">View Details</button>
+        <p class="text-gray-600 mb-4 flex-grow">${product.name_en}</p>
+        <span class="text-sm font-bold text-teal mb-3">${product.price} €</span>
+
+        <div class="flex justify-between items-center w-full mt-auto">
+          <!-- Icône panier à gauche -->
+          <button class="text-teal" onclick="openAddToCartModal(event, ${product.id})">
+            <i class="fas fa-cart-plus text-2xl"></i>
+          </button>
+          
+          <!-- Bouton View Details à droite -->
+          <button class="btn-primary text-white px-5 py-1 text-sm" onclick="showDetail(${product.id})">
+            View Details
+          </button>
         </div>
-      </div>
+      
+      </div> 
     </div>
   `).join('');
 }
+
 
 function renderPagination() {
   const pageCount = Math.ceil(filteredProducts.length / perPage);
