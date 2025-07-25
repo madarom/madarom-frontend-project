@@ -122,8 +122,9 @@ window.addEventListener('scroll', () => {
   const logo = document.querySelector('.logo-font');
   const logo2 = document.querySelector('.logo-part');
   const langue = document.querySelector('.btn-langue');
+  const cart = document.querySelector('.btn-cart');
 
-  if (!header || !logo || !logo2 || !langue) return;
+  if (!header || !logo || !logo2 || !langue || !cart) return;
 
   if (window.scrollY > 50) {
     header.classList.add('bg-white', 'shadow-lg', 'translate-y-0');
@@ -140,6 +141,9 @@ window.addEventListener('scroll', () => {
 
     langue.classList.remove('border-white');
     langue.classList.add('border-gray-900');
+
+    cart.classList.remove('text-white');
+    cart.classList.add('text-gray-900');
 
     navLinks.forEach(link => {
       link.classList.remove('text-white');
@@ -160,6 +164,9 @@ window.addEventListener('scroll', () => {
 
     langue.classList.add('border-white');
     langue.classList.remove('border-gray-900');
+
+    cart.classList.add('text-white');
+    cart.classList.remove('text-gray-900');
 
     navLinks.forEach(link => {
       link.classList.remove('text-gray-900');

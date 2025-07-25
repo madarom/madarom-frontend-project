@@ -109,6 +109,15 @@
         </nav>
 
         <div class="flex items-center space-x-4" data-aos="fade-left">
+
+          <!-- Voir Panier -->
+          <!-- <a href="./pages/main/cart.html" class="btn-cart text-white relative transition-all duration-300 transform duration-300">
+            <i class="fas fa-shopping-cart text-xl"></i>
+            <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-[#fcffff] text-xs w-5 h-5 rounded-full flex items-center justify-center">
+              0
+            </span>
+          </a> -->
+          
           <!-- Language Selector -->
           <select class="btn-langue bg-transparent text-white border border-white rounded px-2 py-1 text-sm focus:outline-none">
             <option class="text-gray-900" value="en" selected>EN</option>
@@ -116,7 +125,8 @@
           </select>
 
           <!-- Login Button -->
-          <a href="./pages/authentification/login.html">
+          <!-- <a href="./pages/authentification/login.html"> -->
+            <a href="">
             <button class="btn-primary text-white px-6 py-2 rounded-full font-medium transition duration-300">
               Login
             </button>
@@ -325,6 +335,9 @@
     <!-- Product Detail Section -->
     <section id="product-detail" class="py-20 bg-white hidden">
     </section>
+
+    <!-- Place this once in your HTML body -->
+    <div id="toast" class="fixed bottom-5 right-5 bg-teal-600 text-white px-4 py-2 rounded shadow-lg opacity-0 translate-y-10 transition-all duration-500 z-50"></div>
 
     <!-- Section Services -->
     <section id="services" class="py-20 bg-white">

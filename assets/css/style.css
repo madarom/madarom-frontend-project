@@ -28,6 +28,10 @@ body {
 .nav-link:hover {
     color: #ff9700;
 }
+
+.btn-cart:hover {
+    color: #ff9700;
+}
 .btn-primary {
     background-color: #bc1414;
     border-top-left-radius: 25px;

@@ -29,7 +29,7 @@ function renderProducts() {
   const paginated = filteredProducts.slice(start, start + perPage);
 
   productContainer.innerHTML = paginated.map(product => `
-    <div class="product-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300 cursor-pointer flex flex-col" onclick="showDetail(${product.id})" data-aos="fade-right" style="height: 100%;">
+    <div class="product-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300 cursor-pointer flex flex-col" data-aos="fade-right" style="height: 100%;">
       <div class="h-48 bg-[#fcffff] flex items-center justify-center">
         <img src="https://www.madarom.net/${product.image_path ?? 'assets/img/p1.png'}" alt="${product.name_en}" class="h-full w-full object-cover">
       </div>
@@ -40,7 +40,7 @@ function renderProducts() {
 
         <div class="flex justify-between items-center w-full mt-auto">
           <!-- Icône panier à gauche -->
-          <button class="text-teal" onclick="openAddToCartModal(event, ${product.id})">
+          <button class="text-teal" onclick="addtoCart(${product.id})">
             <i class="fas fa-cart-plus text-2xl"></i>
           </button>
           
@@ -123,14 +123,14 @@ function showDetail(productId) {
       <div class="flex flex-col lg:flex-row gap-12 items-center">
         <div class="w-full lg:w-1/2">
           <div class="bg-gray-100 rounded-xl overflow-hidden h-96 flex items-center justify-center">
-            <img src="https://www.madarom.net/${product.image_path ?? 'assets/img/p1.png'}" alt="${product.name_fr}" class="h-full w-full object-cover">
+            <img src="https://www.madarom.net/${product.image_path ?? 'assets/img/p1.png'}" alt="${product.name_en}" class="h-full w-full object-cover">
           </div>
         </div>
         <div class="w-full lg:w-1/2">
         <p class="text-4xl font-bold mb-4">${product.name_latin ?? '–'}</p>
-          <h2 class="text-2xl font-bold mb-4 text-gray-600">${product.name_fr}</h2>
-          <p class="text-gray-700 mb-4">${product.description_fr}</p>
-          <p class="text-gray-600 mb-4">Catégorie : ${product.category?.name ?? '–'}</p>
+          <h2 class="text-2xl font-bold mb-4 text-gray-600">${product.name_en}</h2>
+          <p class="text-gray-700 mb-4">${product.description_en}</p>
+          <p class="text-gray-600 mb-4">Catégory : ${product.category?.name ?? '–'}</p>
           <button class="mt-6 btn-primary text-white px-6 py-2 rounded-full" onclick="hideDetail()">Fermer</button>
         </div>
       </div>
@@ -138,8 +138,99 @@ function showDetail(productId) {
   `;
 }
 
+function addtoCart(productId) {
+  const product = allProducts.find(p => p.id === productId);
+  if (!product) return;
+
+  detailSection.classList.remove('hidden');
+  detailSection.scrollIntoView({ behavior: 'smooth' });
+
+  detailSection.innerHTML = `
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col lg:flex-row gap-12 items-center">
+        <div class="w-full lg:w-1/2">
+          <div class="bg-gray-100 rounded-xl overflow-hidden h-96 flex items-center justify-center">
+            <img src="https://www.madarom.net/${product.image_path ?? 'assets/img/p1.png'}" alt="${product.name_en}" class="h-full w-full object-cover">
+          </div>
+        </div>
+        <div class="w-full lg:w-1/2">
+          <p class="text-4xl font-bold mb-4">${product.name_latin ?? '–'}</p>
+          <h2 class="text-2xl font-bold mb-4 text-gray-600">${product.name_en}</h2>
+          <p class="text-gray-700 mb-4">${product.description_en}</p>
+          <p class="text-gray-600 mb-4">Catégory : ${product.category?.name ?? '–'}</p>
+          <p class="text-gray-600 mb-4">Price : ${product.price}</p>
+
+          <div class="mb-6">
+            <label for="quantity" class="block mb-2 font-semibold text-gray-700">Quantity (kg)</label>
+            <div class="flex items-center gap-4">
+              <button onclick="changeQuantity(-1)" class="text-lg font-bold px-3 py-1 bg-gray-200 rounded">−</button>
+              <input type="number" id="quantity" min="1" value="1" class="w-20 text-center border border-gray-300 rounded py-1">
+              <button onclick="changeQuantity(1)" class="text-lg font-bold px-3 py-1 bg-gray-200 rounded">+</button>
+            </div>
+          </div>
+
+          <button class="mt-6 btn-primary text-white px-6 py-2 rounded-full" onclick="handleAddToCart(${product.id})">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+// Fonction globale pour modifier la quantité
+function changeQuantity(delta) {
+  const input = document.getElementById('quantity');
+  let value = parseInt(input.value) || 1;
+  value = Math.max(1, value + delta);
+  input.value = value;
+}
+
+
 function hideDetail() {
   detailSection.classList.add('hidden');
+}
+
+function addToCartStorage(product, quantity) {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  const existing = cart.find(item => item.id === product.id);
+  if (existing) {
+    existing.quantity += quantity;
+  } else {
+    cart.push({ ...product, quantity });
+  }
+
+  localStorage.setItem('cart', JSON.stringify(cart));
+  showNotification(`${product.name_en} added to cart (${quantity} kg)`);
+  hideDetail();
+}
+
+// function showNotification(message) {
+//   const toast = document.getElementById('toast');
+//   toast.textContent = message;
+//   toast.classList.remove('opacity-0');
+
+//   setTimeout(() => {
+//     toast.classList.add('opacity-0');
+//   }, 2500);
+// }
+
+function showNotification(message) {
+  const toast = document.getElementById('toast');
+  toast.textContent = message;
+  toast.classList.remove('opacity-0', 'translate-y-10');
+  toast.classList.add('opacity-100', 'translate-y-0');
+
+  setTimeout(() => {
+    toast.classList.add('opacity-0', 'translate-y-10');
+    toast.classList.remove('opacity-100', 'translate-y-0');
+  }, 3000); // disparaît après 3s
+}
+
+
+function handleAddToCart(productId) {
+  const product = allProducts.find(p => p.id === productId);
+  const quantity = parseInt(document.getElementById('quantity').value) || 1;
+  addToCartStorage(product, quantity);
 }
 
 async function loadCategories() {
@@ -171,7 +262,7 @@ async function loadCategories() {
       container.appendChild(label);
     });
   } catch (error) {
-    console.error("Erreur lors du chargement des catégories:", error);
+    console.error("Erreur lors du chargement des catégorys:", error);
   }
 }
 
@@ -203,7 +294,7 @@ async function loadSubCategories() {
       container.appendChild(div);
     });
   } catch (error) {
-    console.error("Erreur lors du chargement des sous-catégories :", error);
+    console.error("Erreur lors du chargement des sous-catégorys :", error);
   }
 }
 
@@ -226,7 +317,7 @@ function filterProducts() {
   renderPagination();
 }
 
-// Visuel sélection sous-catégorie
+// Visuel sélection sous-catégory
 function highlightSelectedSubcategory() {
   document.querySelectorAll('[data-type="subcategory"]').forEach(el => {
     const id = parseInt(el.getAttribute("data-id"));
@@ -241,3 +332,13 @@ function highlightSelectedSubcategory() {
 // Charger les filtres
 loadCategories();
 loadSubCategories();
+
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const cartCount = cart.length;
+  document.getElementById("cart-count").textContent = cartCount;
+}
+
+updateCartCount();
+
+window.addEventListener("storage", updateCartCount);
