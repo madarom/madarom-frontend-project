@@ -6,10 +6,4 @@
       <changefreq>weekly</changefreq>
       <priority>1.0</priority>
    </url>
-   <url>
-      <loc>https://madarom.net/abouut</loc>
-      <lastmod>2025-07-20</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
 </urlset>
