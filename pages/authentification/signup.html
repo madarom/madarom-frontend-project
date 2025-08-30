@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../../assets/css/authentification.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
 </head>
 <body class="min-h-screen flex items-center justify-center p-4">
     <div class="w-full max-w-md">
@@ -17,9 +16,7 @@
         </div>
 
         <div class="bg-white rounded-lg p-8 sm:p-10 shadow">
-
             <form id="signupForm" novalidate>
-                <!-- Étape 1 -->
                 <div id="step1">
                     <div class="input-container">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 input-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -98,53 +95,53 @@
                     <p id="confirmError" class="text-red-500 text-xs mb-4 hidden">Les mots de passe ne correspondent pas.</p>
 
                     <button type="submit" class="btn-primary rounded-full">S’inscrire</button>
-                    <!-- <button type="button" id="backBtn" class="mt-4 btn-login rounded-full bg-gray-400 hover:bg-gray-500">Retour</button> -->
                 </div>
             </form>
 
             <div class="mt-8 text-center">
                 <p class="text-gray-500">
                     Déjà un compte ?
-                    <a href="./login.html" class="text-[#56b6a8] font-medium">Se connecter</a>
+                    <a href="/signin" class="text-[#56b6a8] font-medium">Se connecter</a>
                 </p>
             </div>
         </div>
     </div>
 
     <script>
+        const API_URL_REG = 'http://127.0.0.1:8000/api/register';
+    
         const email = document.getElementById("email");
         const password = document.getElementById("password");
         const confirmPassword = document.getElementById("confirmPassword");
         const emailError = document.getElementById("emailError");
         const confirmError = document.getElementById("confirmError");
-
+    
         const checklist = {
             length: document.getElementById("length"),
             uppercase: document.getElementById("uppercase"),
             special: document.getElementById("special"),
         };
-
+    
         const step1 = document.getElementById("step1");
         const step2 = document.getElementById("step2");
         const nextBtn = document.getElementById("nextBtn");
-        const backBtn = document.getElementById("backBtn");
         const form = document.getElementById("signupForm");
-
+    
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
+    
         function updateIcon(item, valid) {
             const icon = item.querySelector(".icon");
             icon.classList.remove("text-green-500", "text-red-500");
             icon.classList.add(valid ? "text-green-500" : "text-red-500");
         }
-
+    
         function validatePasswordChecklist() {
             const value = password.value;
             updateIcon(checklist.length, value.length >= 8);
             updateIcon(checklist.uppercase, /[A-Z]/.test(value));
             updateIcon(checklist.special, /[\d\W]/.test(value));
         }
-
+    
         function checkPasswordMatch() {
             if (confirmPassword.value !== "" && password.value !== confirmPassword.value) {
                 confirmError.classList.remove("hidden");
@@ -154,8 +151,7 @@
                 return true;
             }
         }
-
-        // Toggle password visibility (pour tous les boutons)
+    
         document.querySelectorAll(".toggle-password").forEach((btn) => {
             btn.addEventListener("click", () => {
                 const input = btn.previousElementSibling;
@@ -168,61 +164,103 @@
                 }
             });
         });
-
+    
         password.addEventListener("input", validatePasswordChecklist);
-
-        // Étape 1 bouton "Suivant"
+    
         nextBtn.addEventListener("click", () => {
             let valid = true;
-
+    
             if (!emailRegex.test(email.value)) {
                 emailError.classList.remove("hidden");
                 valid = false;
             } else {
                 emailError.classList.add("hidden");
             }
-
+    
             const strongPassword =
                 password.value.length >= 8 &&
                 /[A-Z]/.test(password.value) &&
                 /[\d\W]/.test(password.value);
-
+    
             if (!strongPassword) valid = false;
-
+    
             if (valid) {
-                // Passe à l'étape 2
                 step1.classList.add("hidden");
                 step2.classList.remove("hidden");
             }
         });
-
-        // Étape 2 bouton "Retour"
-        backBtn.addEventListener("click", () => {
-            step2.classList.add("hidden");
-            step1.classList.remove("hidden");
-        });
-
-        // Soumission finale
-        form.addEventListener("submit", (e) => {
+    
+        form.addEventListener("submit", async (e) => {
             e.preventDefault();
-
+    
             if (!checkPasswordMatch()) return;
-
-            // Ici, soumettre le formulaire (API, etc.)
+    
             const btn = form.querySelector("button[type=submit]");
             btn.disabled = true;
-            btn.innerHTML = "Inscription en cours...";
+            btn.innerHTML = "Inscription...";
+    
+            const nameFromEmail = email.value.split("@")[0];
+    
+            const payload = {
+                name: nameFromEmail,
+                email: email.value.trim(),
+                password: password.value,
+                password_confirmation: confirmPassword.value,
+            };
+    
+            try {
+                const response = await fetch(API_URL_REG, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Accept: "application/json",
+                    },
+                    body: JSON.stringify(payload),
+                });
+    
+                const data = await response.json();
 
-            setTimeout(() => {
                 btn.disabled = false;
                 btn.innerHTML = "S’inscrire";
+    
+                if (!response.ok) {
+                    if (data.errors) {
+                        if (data.errors.email) {
+                            emailError.textContent = data.errors.email[0];
+                            emailError.classList.remove("hidden");
+                        }
+                        if (data.errors.password) {
+                            confirmError.textContent = data.errors.password[0];
+                            confirmError.classList.remove("hidden");
+                        }
+                    } else {
+                        // alert(data.message || "Erreur lors de l'inscription.");
+                    }
+                    return;
+                }
+
+                if (data.user) {
+                    sessionStorage.setItem("token", data.token);
+                } else {
+                    // alert(data.message || "Identifiants incorrects.");
+                }
+    
                 alert("Inscription réussie !");
                 form.reset();
                 step2.classList.add("hidden");
                 step1.classList.remove("hidden");
-                // Tu peux aussi rediriger vers login ou autre ici
-            }, 1500);
+    
+                const lang = sessionStorage.getItem('lang').toLowerCase();
+                window.location.href = `${window.location.origin}/${lang}/`;
+
+            } catch (error) {
+                console.error(error);
+                alert("Erreur de connexion.");
+                btn.disabled = false;
+                btn.innerHTML = "S’inscrire";
+            }
         });
     </script>
+    
 </body>
 </html>
