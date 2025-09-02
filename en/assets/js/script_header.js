@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.warn("Aucun token trouvé dans sessionStorage");
       }
 
-      fetch('https://madarom-project-production.up.railway.app/user-session', {
+      fetch('https://madarom-project-production.up.railway.app/api/user-session', {
         method: 'GET',
         headers: {
           Authorization: `Bearer ${token}`,
