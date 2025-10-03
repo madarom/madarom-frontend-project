@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon" />
+</head>
+<body class="flex">
+
+  <div id="sidebar-placeholder"></div>
+
+  <main class="ml-64 w-full min-h-screen bg-gray-50">
+    <div id="main-content" class="p-6">
+      <h1 class="text-2xl font-bold mb-4 text-gray-800">Welcome, Admin!</h1>
+      <p class="text-gray-600">Select an item from the sidebar to get started.</p>
+    </div>
+  </main>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      fetch("/admin/sidebar")
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById("sidebar-placeholder").innerHTML = html;
+    
+          const links = document.querySelectorAll(".menu-link");
+          const content = document.getElementById("main-content");
+    
+          links.forEach(link => {
+            link.addEventListener("click", e => {
+              e.preventDefault();
+    
+              const pageUrl = link.getAttribute("href"); 
+    
+              links.forEach(l => l.classList.remove("bg-[#393E46]"));
+              link.classList.add("bg-[#393E46]");
+    
+              fetch(pageUrl)
+                .then(res => res.text())
+                .then(html => {
+                  content.innerHTML = html;
+    
+                  const pageName = pageUrl.split("/").pop() || "dashboard"; 
+                  const scriptPath = `../../assets/js/admin/${pageName}.js`;
+    
+                  const oldScript = document.querySelector("script[data-page-script]");
+                  if (oldScript) oldScript.remove();
+    
+                  const script = document.createElement("script");
+                  script.src = scriptPath;
+                  script.defer = true;
+                  script.dataset.pageScript = "true";
+                  script.onload = () => {
+                    const initFunc = "init" + pageName.charAt(0).toUpperCase() + pageName.slice(1) + "s";
+                    if (typeof window[initFunc] === "function") {
+                      window[initFunc]();
+                    }
+                  };
+                  document.body.appendChild(script);
+
+                });
+            });
+          });
+        });
+    });
+    
+    window.addEventListener("popstate", () => {
+      const currentPath = window.location.pathname;
+      const link = document.querySelector(`.menu-link[href="${currentPath}"]`);
+      if (link) link.click();
+    });
+    </script>
+    
+  
+</body>
+</html>

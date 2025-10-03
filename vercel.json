@@ -1,0 +1,58 @@
+{
+  "routes": [
+    { "src": "/", "dest": "/index.html" },
+
+    { "src": "/en", "dest": "/en/index.html" },
+    { "src": "/en/about", "dest": "/en/index.html#about" },
+    { "src": "/en/service", "dest": "/en/index.html#services" },
+    { "src": "/en/contact", "dest": "/en/index.html#contact" },
+    { "src": "/en/products", "dest": "/en/index.html#products" },
+    { "src": "/en/blog", "dest": "/en/blog.html" },
+    { "src": "/en/blog-details", "dest": "/en/blogDetails.html"},
+    { "src": "/en/cart", "dest": "/en/pages/main/cart.html"},
+    { "src": "/en/quote", "dest": "/en/pages/main/quote.html"},
+    { "src": "/en/quote/show", "dest": "/en/pages/main/quote_pdf.html"},
+    { "src": "/en/order", "dest": "/en/pages/main/order.html"},
+    { "src": "/en/order/show", "dest": "/en/pages/main/bc_pdf.html"},
+    { "src": "/en/payment", "dest": "/en/pages/main/payement.html"},
+    { "src": "/en/invoice", "dest": "/en/pages/main/invoice.html"},
+    { "src": "/en/invoice/show", "dest": "/en/pages/main/invoice_pdf.html"},
+
+    { "src": "/fr", "dest": "/fr/index.html" },
+    { "src": "/fr/about", "dest": "/fr/index.html#about" },
+    { "src": "/fr/service", "dest": "/fr/index.html#services" },
+    { "src": "/fr/contact", "dest": "/fr/index.html#contact" },
+    { "src": "/fr/products", "dest": "/fr/index.html#products" },
+    { "src": "/fr/blog", "dest": "/fr/blog.html" },
+    { "src": "/fr/blog-details", "dest": "/fr/blogDetails.html"},
+    { "src": "/fr/cart", "dest": "/fr/pages/main/cart.html"},
+    { "src": "/fr/quote", "dest": "/fr/pages/main/quote.html"},
+    { "src": "/fr/quote/show", "dest": "/fr/pages/main/quote_pdf.html"},
+    { "src": "/fr/order", "dest": "/fr/pages/main/order.html"},
+    { "src": "/fr/order/show", "dest": "/fr/pages/main/bc_pdf.html"},
+    { "src": "/fr/payment", "dest": "/fr/pages/main/payement.html"},
+    { "src": "/fr/invoice", "dest": "/fr/pages/main/invoice.html"},
+    { "src": "/fr/invoice/show", "dest": "/fr/pages/main/invoice_pdf.html"},
+
+    { "src": "/signin", "dest": "/pages/authentification/login.html"},
+    { "src": "/signup", "dest": "/pages/authentification/signup.html"},
+    { "src": "/reset-password", "dest": "/pages/authentification/reset.html"},
+
+    { "src": "/admin/dashboard", "dest": "/pages/admin/dashboard.html"},
+    { "src": "/admin/sidebar", "dest": "/pages/admin/sidebar.html"},
+    { "src": "/admin/quote", "dest": "/pages/admin/quote.html"},
+    { "src": "/admin/quote/show", "dest": "/pages/admin/quote_pdf.html"},
+    { "src": "/admin/order", "dest": "/pages/admin/order.html"},
+    { "src": "/admin/order/show", "dest": "/pages/admin/order_pdf.html"},
+    { "src": "/admin/invoice", "dest": "/pages/admin/invoice.html"},
+    { "src": "/admin/invoice/show", "dest": "/pages/admin/invoice_pdf.html"},
+    { "src": "/admin/clients", "dest": "/pages/admin/clients.html"},
+    { "src": "/admin/products", "dest": "/pages/admin/products.html"},
+    { "src": "/admin/settings", "dest": "/pages/admin/settings.html"},
+
+    { "src": "/401", "dest": "/pages/errors/401.html"},
+    { "src": "/403", "dest": "/pages/errors/403.html"},
+    { "src": "/404", "dest": "/pages/errors/404.html"},
+    { "src": "/500", "dest": "/pages/errors/500.html"}
+  ]
+}
