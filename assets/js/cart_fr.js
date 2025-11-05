@@ -63,7 +63,6 @@ async function fetchCartItems() {
     }
 
     const sessionCart = await res.json();
-    // console.log("cart data:", sessionCart);
 
     const detailedCart = await Promise.all(
       sessionCart.map(async item => {
@@ -79,7 +78,6 @@ async function fetchCartItems() {
     );
 
     cartItems = detailedCart.filter(p => p !== null);
-    // console.log("detailedCart après filtrage:", cartItems);
 
     updateCartDisplay();
 
