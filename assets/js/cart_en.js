@@ -132,7 +132,7 @@ function updateCartDisplay() {
   let total = 0;
 
   if (cartItems.length === 0) {
-    cartContainer.innerHTML = "<p class='text-gray-500 italic'>Votre panier est vide.</p>";
+    cartContainer.innerHTML = "<p class='text-gray-500 italic'>Your cart is empty.</p>";
     const totalAmountElement = document.getElementById("total-amount");
     if (totalAmountElement) {
       totalAmountElement.textContent = formatPrice(0);
@@ -163,7 +163,7 @@ function updateCartDisplay() {
   
       <div class="flex flex-col flex-1 text-center sm:text-left gap-2">
         <h3 class="font-semibold text-base sm:text-lg text-primary">${item.name_latin}</h3>
-        <p class="text-gray-500 text-sm">Prix Unitaire : <span class="font-medium">${formatPrice(item.price)}</span></p>
+        <p class="text-gray-500 text-sm hidden">Unit price : <span class="font-medium">${formatPrice(item.price)}</span></p>
   
         <div class="flex justify-center sm:justify-start items-center gap-2 mt-1">
           <button class="w-8 h-8 bg-gray-200 hover:bg-gray-300 text-xl rounded" onclick="changeQuantity(${index}, -1)">−</button>
@@ -174,7 +174,7 @@ function updateCartDisplay() {
         </div>
       </div>
   
-      <div class="flex flex-col items-center sm:items-end gap-2 mt-3 sm:mt-0 min-w-[80px]">
+      <div class="flex flex-col items-center sm:items-end gap-2 mt-3 sm:mt-0 min-w-[80px] hidden">
         <div class="font-bold text-lg text-teal-700">${formatPrice(subTotal)}</div>
       </div>
     `;
@@ -187,7 +187,7 @@ function updateCartDisplay() {
   
   summaryLine.innerHTML = `
     <div class="rounded-md text-sm text-gray-400 text-left">
-      Validez votre panier pour recevoir un devis personnalisé et procéder à une demande de bon de commande.
+    Confirm your cart to receive a personalized quote and request a purchase order.
     </div>
   `;
   
@@ -459,3 +459,13 @@ document.addEventListener("DOMContentLoaded", () => {
     userMenus.classList.remove("hidden");
   }
 });
+
+const whatsappBtn = document.getElementById('whatsapp-btn');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 100) {
+    whatsappBtn.classList.add('collapsed');
+  } else {
+    whatsappBtn.classList.remove('collapsed');
+  }
+});  

@@ -10,7 +10,7 @@ const pagination = document.getElementById('pagination');
 function renderQuotes(data) {
   tbody.innerHTML = '';
   if (data.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="4" class="px-6 py-4 text-center text-gray-500">No quotes found.</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="4" class="px-6 py-4 text-center text-gray-500">Aucun devis trouvé.</td></tr>`;
     pagination.innerHTML = '';
     return;
   }
@@ -340,3 +340,13 @@ document.addEventListener("DOMContentLoaded", () => {
     userMenus.classList.remove("hidden");
   }
 });
+
+const whatsappBtn = document.getElementById('whatsapp-btn');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 100) {
+    whatsappBtn.classList.add('collapsed');
+  } else {
+    whatsappBtn.classList.remove('collapsed');
+  }
+});  

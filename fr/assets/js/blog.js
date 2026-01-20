@@ -1,40 +1,46 @@
 const articles = [
   {
-    id: "ART040825-001",
+    id: "BLOGFR-001",
     date: "Mai 2025",
-    title: "Le pouvoir secret des huiles essentielles malgaches",
-    summary: "Madagascar est réputé pour produire certaines des huiles essentielles les plus pures et les plus puissantes au monde. Du ravintsara au niaouli, ces huiles offrent une solution naturelle et thérapeutique pour renforcer l’immunité, réduire le stress et améliorer le sommeil. Chez Mad’Arom, nous collaborons directement avec des petits producteurs afin de garantir une traçabilité à 100 % et un approvisionnement durable, alliant savoir traditionnel et science moderne.",
-    contenu: "Le climat et la biodiversité uniques de Madagascar en font une source exceptionnelle d’huiles essentielles d’une pureté et d’une efficacité remarquables. L’île abrite des plantes endémiques comme le ravintsara et le niaouli, dont les huiles essentielles sont prisées depuis des siècles pour leurs propriétés médicinales et aromatiques. L’huile essentielle de ravintsara est largement connue pour ses effets antiviraux et stimulants du système immunitaire. Elle est souvent utilisée pour soutenir la santé respiratoire et renforcer les défenses naturelles de l’organisme pendant les saisons de rhume et de grippe. Son arôme frais et camphré aide également à réduire la fatigue mentale et à améliorer la concentration. L’huile de niaouli, autre trésor malgache, offre des bienfaits antiseptiques et anti-inflammatoires doux mais puissants. Elle est souvent utilisée pour apaiser les irritations cutanées, favoriser la cicatrisation et soutenir le bien-être respiratoire. Son parfum subtil, proche de l’eucalyptus, en fait un favori en aromathérapie et en relaxation. Chez Mad’Arom, notre engagement va au-delà de la qualité. Nous travaillons directement avec les petits producteurs à travers Madagascar, garantissant que chaque goutte d’huile est traçable à 100 % de la plante au flacon. Cette approche assure des pratiques de récolte durables qui protègent l’environnement et renforcent les communautés locales. Que votre objectif soit de renforcer l’immunité, de soulager le stress ou d’améliorer la qualité du sommeil, les huiles essentielles malgaches offrent une option naturelle et efficace. Soutenues par des siècles d’usage traditionnel et validées par la recherche scientifique moderne, ces huiles révèlent le pouvoir de guérison de la nature. Découvrez la pureté et la puissance des huiles essentielles malgaches — distillées et mises en flacon avec respect pour les hommes et la planète.",
+    title: "Pourquoi les huiles essentielles de Madagascar séduisent le marché asiatique du bien-être",
+    summary:
+      "La demande en huiles essentielles naturelles explose en Asie. Des spas de Singapour aux marques de cosmétiques naturelles de Chine et de Taïwan, toutes recherchent des produits purs et éthiques — et Madagascar est en tête.",
+    contenu:
+      "Ces dernières années, la demande en huiles essentielles naturelles a explosé en Asie. De l’industrie du spa à Singapour aux cosmétiques naturels en Chine et à Taïwan, les marques recherchent désormais des produits éthiques et d’une pureté exceptionnelle — et Madagascar est devenue une référence. Chez Madarom, nous exportons des huiles essentielles 100 % pures, directement issues des producteurs malgaches. Chaque goutte raconte une histoire de biodiversité, de tradition et de science. Le climat unique de Madagascar permet la production de molécules aromatiques d’une qualité rare. Parmi les plus prisées : Ravintsara, Ylang-Ylang, Baie Rose et Niaouli. Ces huiles sont désormais des références en Asie pour leur authenticité et leurs performances. Madarom garantit une origine éthique et une traçabilité totale : analyses GC/MS, certificats COA et MSDS, distillation à la vapeur et production durable. Nos clients incluent des centres de bien-être, marques de soins naturels et distributeurs d’huiles essentielles à travers toute l’Asie.",
     image: [
       "./assets/img/articles/article1-001.jpg",
       "./assets/img/articles/article1-002.jpg",
     ],
-    theme: "Huiles essentielles",
+    theme: "Huiles Essentielles",
   },
   {
-    id: "ART040825-002",
-    date: "Janvier 2025",
-    title: "Comment utiliser les huiles essentielles en toute sécurité : guide pour débutants",
-    summary: "Les huiles essentielles sont de puissants extraits naturels, mais les utiliser correctement est essentiel pour profiter pleinement de leurs bienfaits. Ce guide pour débutants de Mad’Arom propose des conseils sur la dilution, l’aromathérapie et les bonnes pratiques pour commencer en toute confiance.",
-    contenu: "Les huiles essentielles sont des extraits végétaux concentrés au potentiel incroyable — mais elles doivent être utilisées correctement. Chez Mad’Arom, nous mettons l’accent autant sur l’éducation que sur la qualité. Voici quelques conseils de sécurité essentiels pour les débutants : Diluez toujours les huiles essentielles avant de les appliquer sur la peau avec une huile végétale comme l’huile de coco, de jojoba ou d’amande. Évitez toute ingestion sauf sur recommandation d’un aromathérapeute certifié. Faites toujours un test cutané pour vérifier d’éventuelles réactions allergiques. Utilisez un diffuseur pour une inhalation douce et thérapeutique. Conservez vos huiles dans des flacons en verre foncé, à l’abri de la chaleur et du soleil, afin de préserver leur efficacité. En suivant ces précautions, les huiles essentielles peuvent améliorer naturellement et en toute sécurité votre bien-être. Commencez en sécurité, restez au naturel.",
+    id: "BLOGFR-002",
+    date: "Mai 2025",
+    title: "Comment choisir la bonne huile essentielle pour votre marque (Édition Asie)",
+    summary:
+      "Choisir le bon fournisseur d’huiles essentielles définit l’identité de votre marque — surtout en Asie, où qualité et histoire sont essentielles. Voici le guide Madarom.",
+    contenu:
+      "Choisir le bon fournisseur d’huiles essentielles, c’est définir l’identité même de votre marque — surtout sur le marché asiatique, où la qualité et l’histoire du produit priment. Étape 1 : Définir la mission de votre marque — relaxation, détox ou équilibre respiratoire. Étape 2 : Comprendre les grades d’huiles — privilégier les huiles testées GC/MS et issues de sources durables. Étape 3 : Adapter les mélanges aux goûts asiatiques — 20 % note de tête, 30 % note de cœur, 50 % note de base. Étape 4 : Choisir un partenaire d’export fiable — emballages flexibles, OEM et accompagnement bilingue (anglais et mandarin).",
     image: [
       "./assets/img/articles/article2-001.jpg",
-      "./assets/img/articles/article2-002.jpg"
+      "./assets/img/articles/article2-002.jpg",
     ],
-    theme: "Huiles essentielles",
+    theme: "Stratégie de Marque",
   },
   {
-    id: "ART040825-003",
-    date: "Août 2025",
-    title: "Épices de Madagascar : pourquoi les chefs du monde entier les adorent",
-    summary: "Madagascar produit certaines des épices les plus aromatiques et savoureuses au monde. De la vanille Bourbon au poivre noir sauvage, découvrez pourquoi les plus grands chefs font confiance à ces trésors récoltés à la main et issus de filières éthiques.",
-    contenu: "Madagascar est un paradis pour les amateurs d’épices. L’île est mondialement célébrée pour la production d’épices de première qualité telles que la vanille Bourbon, le poivre noir sauvage, la cannelle et le clou de girofle. Ces épices sont appréciées non seulement pour leurs saveurs et arômes puissants, mais aussi pour leur pureté et leur traçabilité. Chez Mad’Arom, nous collaborons étroitement avec des cultivateurs locaux qui travaillent de manière biologique et durable. Chaque lot est séché au soleil, trié à la main et emballé avec soin afin de garantir une fraîcheur optimale. Que vous soyez un chef gastronomique ou un cuisinier passionné à domicile, les épices malgaches offrent une expérience sensorielle à la fois éthique et exceptionnelle. Goûtez l’île. Cuisinez avec intention.",
+    id: "BLOGFR-003",
+    date: "Mai 2025",
+    title: "Le secret des huiles « Roi et Reine » de Madagascar",
+    summary:
+      "Encens et Ylang-Ylang — le roi et la reine de Madagascar — incarnent pureté et luxe naturel. Découvrez pourquoi ils conquièrent le marché asiatique du bien-être.",
+    contenu:
+      "Dans l’univers des huiles essentielles, peu se distinguent autant que l’Encens et l’Ylang-Ylang — les véritables roi et reine de Madagascar. Leur pureté et leur raffinement en font des incontournables du marché asiatique du spa et de la parfumerie. L’Encens symbolise la purification et la guérison. L’Ylang-Ylang, joyau floral de Madagascar, équilibre les émotions et sublime la peau. Ces huiles sont particulièrement prisées à Singapour et Taïwan. Essayez des synergies comme Ylang-Ylang + Orange (relaxation) ou Encens + Ravintsara (purification). Madarom assure un approvisionnement éthique, des tests de qualité et des services OEM personnalisés.",
     image: [
       "./assets/img/articles/article3-001.jpg",
       "./assets/img/articles/article3-002.jpg",
     ],
-    theme: "Épices",
-  }
+    theme: "Bien-être",
+  },
 ];
 
   function renderArticlesList(containerId) {
@@ -216,3 +222,12 @@ const articles = [
     updateSliderPosition();
   }
   
+  const whatsappBtn = document.getElementById('whatsapp-btn');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+      whatsappBtn.classList.add('collapsed');
+    } else {
+      whatsappBtn.classList.remove('collapsed');
+    }
+  });  

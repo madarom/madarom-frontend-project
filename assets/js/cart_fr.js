@@ -90,60 +90,6 @@ async function fetchCartItems() {
   }
 }
 
-
-// async function fetchCartItems() {
-//   const token = sessionStorage.getItem("token");
-//   if (!token) {
-//     console.warn("Aucun token trouvé dans sessionStorage → utilisateur non connecté.");
-//     cartItems = [];
-//     updateCartDisplay();
-//     return;
-//   }
-
-//   try {
-//     const res = await fetch(`${api_url}/cart`, {
-//       headers: {
-//         'Authorization': `Bearer ${token}`
-//       }
-//     });
-
-//     if (!res.ok) {
-//       console.error('Erreur API récupération panier:', res.status);
-//       cartItems = [];
-//       updateCartDisplay();
-//       return;
-//     }
-
-//     const sessionCart = await res.json();
-
-    // console.log("cart data: ", sessionCart);
-
-//     const detailedCart = await Promise.all(
-//       sessionCart.map(async item => {
-//         const productDetails = await fetchProductDetails(item.product_id);
-//         if (productDetails) {
-//           return {
-//             ...productDetails,
-//             quantity: item.quantity
-//           };
-//         }
-//         return null;
-//       })
-//     );
-
-//     cartItems = detailedCart.filter(p => p !== null);
-    // console.log("detailedCart après filtrage:", cartItems);
-
-//     updateCartDisplay();
-
-//   } catch (error) {
-//     console.error('Erreur réseau récupération panier:', error);
-//     cartItems = [];
-//     updateCartDisplay();
-//   }
-// }
-
-// Récupère les détails d’un produit via /products/details/{id}
 async function fetchProductDetails(id) {
   try {
     const res = await fetch(`${api_url}/products/details/${id}`);
@@ -153,10 +99,8 @@ async function fetchProductDetails(id) {
     }
     const data = await res.json();
 
-    // console.log('details produit:', data);
 
     const price = parseFloat(data.active_price?.amount ?? 0);
-    // console.log('prix du produit:', price);
     return {
       id: data.id,
       name_latin: data.name_latin,
@@ -182,8 +126,6 @@ function strictObject(obj) {
 }
 
 function updateCartDisplay() {
-  // console.log("updateCartDisplay appelé");
-  // console.log("cartItems:", cartItems);
 
   const cartContainer = document.getElementById("cart-container");
   const summaryItems = document.getElementById("summary-items");
@@ -230,7 +172,7 @@ function updateCartDisplay() {
   
       <div class="flex flex-col flex-1 text-center sm:text-left gap-2">
         <h3 class="font-semibold text-base sm:text-lg text-primary">${item.name_latin}</h3>
-        <p class="text-gray-500 text-sm">Prix Unitaire : <span class="font-medium">${formatPrice(item.price)}</span></p>
+        <p class="text-gray-500 text-sm hidden">Prix Unitaire : <span class="font-medium">${formatPrice(item.price)}</span></p>
   
         <div class="flex justify-center sm:justify-start items-center gap-2 mt-1">
           <button class="w-8 h-8 bg-gray-200 hover:bg-gray-300 text-xl rounded" onclick="changeQuantity(${index}, -1)">−</button>
@@ -241,7 +183,7 @@ function updateCartDisplay() {
         </div>
       </div>
   
-      <div class="flex flex-col items-center sm:items-end gap-2 mt-3 sm:mt-0 min-w-[80px]">
+      <div class="flex flex-col items-center sm:items-end gap-2 mt-3 sm:mt-0 min-w-[80px] hidden">
         <div class="font-bold text-lg text-teal-700">${formatPrice(subTotal)}</div>
       </div>
     `;
@@ -524,3 +466,13 @@ document.addEventListener("DOMContentLoaded", () => {
     userMenus.classList.remove("hidden");
   }
 });
+
+const whatsappBtn = document.getElementById('whatsapp-btn');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 100) {
+    whatsappBtn.classList.add('collapsed');
+  } else {
+    whatsappBtn.classList.remove('collapsed');
+  }
+});  

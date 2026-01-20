@@ -345,3 +345,13 @@ window.addEventListener('scroll', () => {
       if (el) el.scrollIntoView({ behavior: "smooth" });
     } 
   });
+
+  const whatsappBtn = document.getElementById('whatsapp-btn');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+      whatsappBtn.classList.add('collapsed');
+    } else {
+      whatsappBtn.classList.remove('collapsed');
+    }
+  });  
